@@ -37,7 +37,7 @@ func CheckPrivileges(uid int) {
 func main() {
   log.Print("Simple DHCP Server")
   log.Print("Copyright (C) 2016 Jakub Wozniak")
-  log.Print("Distrbuted Systems, Poznan University of Technology")
+  log.Print("Distributed Systems, Poznan University of Technology")
 
   CheckPrivileges(os.Getuid())
   fmt.Println(os.Getuid())
