@@ -18,17 +18,15 @@
 
 package main
 
-import "fmt"
-import "os"
-import "log"
+import (
+    "fmt"
+    "os"
+    "log"
+    //"golang.org/x/sys/unix"
+    )
 
-func main() {
-  fmt.Printf("Lightweight DHCPD Server\n")
-  fmt.Printf("Network Programming 2016\n")
-  fmt.Printf("Jakub Wozniak\n")
 
-  uid := os.Getuid()
-
+func CheckPrivileges(uid int) {
   if uid != 0 {
     log.Fatal("You have to be root to run this server")
     os.Exit(1)
@@ -36,4 +34,11 @@ func main() {
 }
 
 
+func main() {
+  log.Print("Simple DHCP Server")
+  log.Print("Copyright (C) 2016 Jakub Wozniak")
+  log.Print("Distrbuted Systems, Poznan University of Technology")
 
+  CheckPrivileges(os.Getuid())
+  fmt.Println(os.Getuid())
+}
